@@ -16,12 +16,12 @@ var evenOnly = function () {
 // The famous Fizz buzz challenge
 
 var fizzBuzz = function (i) {
-     if (i % 15 === 0) {
-       console.log("Fizz buzz");
-   } else if (i % 3 === 0) {
-       console.log("Fizz");
-   } else if (i % 5 === 0) {
-       console.log("buzz");
+     if (i % 15 === 0) {         // if multiple of 3 && 5
+       console.log("Fizz buzz"); //  Fizz buzz
+   } else if (i % 3 === 0) {     // if multiple of 3
+       console.log("Fizz");      // Fizz
+   } else if (i % 5 === 0) {     // if multiple of 5
+       console.log("buzz");      // buzz
    }
 
 }
