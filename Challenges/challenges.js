@@ -28,4 +28,7 @@ search.upWhich("[^a]","gi");
 function countLetr(a){
    return a.replace(search.regex[0], "").length;
     
-}
+};
+
+
+
