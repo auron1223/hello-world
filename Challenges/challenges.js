@@ -2,32 +2,32 @@
 //global variables
 
 var search = {
-	
-	regex: [],
-	
-	upWhich: function(letter, flag){
-	search.regex.push(new RegExp(letter, flag));
-	},
-	
-	repUpper: function(x,i) {
-	var repVar = x.replace(search.regex[i], function(n){
-		return n.toUpperCase();
-	});
-		console.log(repVar);
-	},
-	
-	upAll: function(x, sentence, n){
-		this.upWhich(x,"gi");
-		this.repUpper(sentence,n);
-	}
-	
+
+    regex: [],
+
+    upWhich: function (letter, flag) {
+        search.regex.push(new RegExp(letter, flag));
+    },
+
+    repUpper: function (x, i) {
+        var repVar = x.replace(search.regex[i], function (n) {
+            return n.toUpperCase();
+        });
+        console.log(repVar);
+    },
+
+    upAll: function (x, sentence, n) {
+        this.upWhich(x, "gi");
+        this.repUpper(sentence, n);
+    }
+
 };
 
 // Search for all instances of the letter 'a' case-insensitive
-search.upWhich("[^a]","gi");
-function countLetr(a){
-   return a.replace(search.regex[0], "").length;
-    
+search.upWhich("[^a]", "gi");
+function countLetr(a) {
+    return a.replace(search.regex[0], "").length;
+
 };
 
 // Find the first non-repeating character in a string and return it
@@ -37,18 +37,18 @@ function countLetr(a){
 var test = "ABCCA";
 
 
-function findTheFirst(string){
+function findTheFirst(string) {
     var char = {};
-    for(var i = 0; i < string.length; i++){
-        if(char[string[i]]){
+    for (var i = 0; i < string.length; i++) {
+        if (char[string[i]]) {
             char[string[i]] = '0';
         } else {
             char[string[i]] = '1';
         }
-    }    
-    for(var j = 0; j < string.length; j++){
-        if(char[string[j]] === '1'){
-          return string.charAt(j);      
+    }
+    for (var j = 0; j < string.length; j++) {
+        if (char[string[j]] === '1') {
+            return string.charAt(j);
         }
     }
 
@@ -61,11 +61,11 @@ function findTheFirst(string){
 
 // create the forEach method on the String object
 
-String.prototype.forEach = function(callback){
+String.prototype.forEach = function (callback) {
 
-    for(var i = 0; i < this.length; i++){
+    for (var i = 0; i < this.length; i++) {
         callback(this[i], i, this);
-            
+
     }
 
 }
@@ -77,8 +77,8 @@ String.prototype.forEach = function(callback){
 
 
 var evenOnly = function () {
-    for(var i = 1; i <= 100; i++){
-        if(i % 2 === 0){
+    for (var i = 1; i <= 100; i++) {
+        if (i % 2 === 0) {
             console.log(i);
         }
     }
@@ -87,13 +87,32 @@ var evenOnly = function () {
 // The famous Fizz buzz challenge
 
 var fizzBuzz = function (i) {
-     if (i % 15 === 0) {         // if multiple of 3 && 5
-       console.log("Fizz buzz"); //  Fizz buzz
-   } else if (i % 3 === 0) {     // if multiple of 3
-       console.log("Fizz");      // Fizz
-   } else if (i % 5 === 0) {     // if multiple of 5
-       console.log("buzz");      // buzz
-   }
+    if (i % 15 === 0) {         // if multiple of 3 && 5
+        console.log("Fizz buzz"); //  Fizz buzz
+    } else if (i % 3 === 0) {     // if multiple of 3
+        console.log("Fizz");      // Fizz
+    } else if (i % 5 === 0) {     // if multiple of 5
+        console.log("buzz");      // buzz
+    }
 
+}
+
+// Write a function that takes in a message, and a mask
+// if they are of equal length
+// output the character if the mask[i] === '1'
+// output '0' if mask[i] === '0'
+
+function maskAndMessage(mask, message) {
+    var out = '';
+    if (mask.length === message.length) {
+        for (var i = 0; i < message.length; i++) {
+            if (mask[i] === "1") {
+                out += message[i];
+            } else {
+                out += mask[i];
+            }
+        }
+        return out;
+    }
 }
 
